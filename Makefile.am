@@ -1,6 +1,8 @@
 # Automake script
 # jvb4@njit.edu
 
+EXTRA_DIST = etc/lecture1.pdf
+
 CFLAGS = -g -O0 -Wall
 CXXFLAGS = -g -O0 -Wall
 
