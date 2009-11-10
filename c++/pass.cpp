@@ -1,5 +1,4 @@
-// Pass by value, reference, const, etc example
-// jb@thunkbrightly.com
+// Copyright (C) 2009 jvb4@njit.edu
 #include <iostream>
 #include <string>
 

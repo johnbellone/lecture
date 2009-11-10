@@ -3,7 +3,7 @@
 # Script to do the configuration work required before running configure
 # when starting from fresh CVS checkout, or cvs update
 
-package="gtkworkbook"
+package="lecture1"
 
 # a silly hack that generates autoregen.sh but it's handy
 echo "#!/bin/sh" > autoregen.sh
@@ -101,4 +101,4 @@ echo ./configure $@
         exit 1
 }
 
-echo "Now type 'sh build all' to compile $package."
+echo "Now type 'make all' to compile $package."

@@ -35,7 +35,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = bin/helloworld_cpp$(EXEEXT) bin/helloworld_c$(EXEEXT)
+bin_PROGRAMS = bin/helloworld_cpp$(EXEEXT) bin/helloworld_c$(EXEEXT) \
+	bin/encapsulation$(EXEEXT) bin/bitfield$(EXEEXT) \
+	bin/goto$(EXEEXT) bin/inheritance$(EXEEXT) bin/pass$(EXEEXT) \
+	bin/pointer$(EXEEXT) bin/union$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/build-aux/config.h.in \
@@ -55,6 +58,21 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
+am_bin_bitfield_OBJECTS = c++/bitfield.$(OBJEXT)
+bin_bitfield_OBJECTS = $(am_bin_bitfield_OBJECTS)
+bin_bitfield_LDADD = $(LDADD)
+bin_bitfield_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_bitfield_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_encapsulation_OBJECTS = c++/encapsulation.$(OBJEXT)
+bin_encapsulation_OBJECTS = $(am_bin_encapsulation_OBJECTS)
+bin_encapsulation_LDADD = $(LDADD)
+bin_encapsulation_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_encapsulation_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_goto_OBJECTS = c++/goto.$(OBJEXT)
+bin_goto_OBJECTS = $(am_bin_goto_OBJECTS)
+bin_goto_LDADD = $(LDADD)
+bin_goto_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_goto_LDFLAGS) $(LDFLAGS) -o $@
 am_bin_helloworld_c_OBJECTS = c/bin_helloworld_c-helloworld.$(OBJEXT)
 bin_helloworld_c_OBJECTS = $(am_bin_helloworld_c_OBJECTS)
 bin_helloworld_c_LDADD = $(LDADD)
@@ -66,6 +84,26 @@ bin_helloworld_cpp_OBJECTS = $(am_bin_helloworld_cpp_OBJECTS)
 bin_helloworld_cpp_LDADD = $(LDADD)
 bin_helloworld_cpp_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(bin_helloworld_cpp_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_inheritance_OBJECTS = c++/inheritance.$(OBJEXT)
+bin_inheritance_OBJECTS = $(am_bin_inheritance_OBJECTS)
+bin_inheritance_LDADD = $(LDADD)
+bin_inheritance_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_inheritance_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_pass_OBJECTS = c++/pass.$(OBJEXT)
+bin_pass_OBJECTS = $(am_bin_pass_OBJECTS)
+bin_pass_LDADD = $(LDADD)
+bin_pass_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_pass_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_pointer_OBJECTS = c++/pointer.$(OBJEXT)
+bin_pointer_OBJECTS = $(am_bin_pointer_OBJECTS)
+bin_pointer_LDADD = $(LDADD)
+bin_pointer_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_pointer_LDFLAGS) $(LDFLAGS) -o $@
+am_bin_union_OBJECTS = c++/union.$(OBJEXT)
+bin_union_OBJECTS = $(am_bin_union_OBJECTS)
+bin_union_LDADD = $(LDADD)
+bin_union_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(bin_union_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/build-aux
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -79,9 +117,16 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
-SOURCES = $(bin_helloworld_c_SOURCES) $(bin_helloworld_cpp_SOURCES)
-DIST_SOURCES = $(bin_helloworld_c_SOURCES) \
-	$(bin_helloworld_cpp_SOURCES)
+SOURCES = $(bin_bitfield_SOURCES) $(bin_encapsulation_SOURCES) \
+	$(bin_goto_SOURCES) $(bin_helloworld_c_SOURCES) \
+	$(bin_helloworld_cpp_SOURCES) $(bin_inheritance_SOURCES) \
+	$(bin_pass_SOURCES) $(bin_pointer_SOURCES) \
+	$(bin_union_SOURCES)
+DIST_SOURCES = $(bin_bitfield_SOURCES) $(bin_encapsulation_SOURCES) \
+	$(bin_goto_SOURCES) $(bin_helloworld_c_SOURCES) \
+	$(bin_helloworld_cpp_SOURCES) $(bin_inheritance_SOURCES) \
+	$(bin_pass_SOURCES) $(bin_pointer_SOURCES) \
+	$(bin_union_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -184,6 +229,34 @@ top_builddir = .
 top_srcdir = .
 C_FLAGS = -I/usr/local/include -I/usr/include -I$(prefix)/include -I./include 
 L_FLAGS = -L/usr/local/lib -L/usr/lib -L$(prefix)/lib -L./lib
+bin_encapsulation_CFLAGS = $(C_FLAGS)
+bin_encapsulation_LFLAGS = $(L_FLAGS)
+bin_encapsulation_LDFLAGS = $(L_FLAGS)
+bin_encapsulation_SOURCES = c++/encapsulation.cpp
+bin_bitfield_CFLAGS = $(C_FLAGS)
+bin_bitfield_LFLAGS = $(L_FLAGS)
+bin_bitfield_LDFLAGS = $(L_FLAGS)
+bin_bitfield_SOURCES = c++/bitfield.cpp
+bin_union_CFLAGS = $(C_FLAGS)
+bin_union_LFLAGS = $(L_FLAGS)
+bin_union_LDFLAGS = $(L_FLAGS)
+bin_union_SOURCES = c++/union.cpp
+bin_goto_CFLAGS = $(C_FLAGS)
+bin_goto_LFLAGS = $(L_FLAGS)
+bin_goto_LDFLAGS = $(L_FLAGS)
+bin_goto_SOURCES = c++/goto.cpp
+bin_inheritance_CFLAGS = $(C_FLAGS)
+bin_inheritance_LFLAGS = $(L_FLAGS)
+bin_inheritance_LDFLAGS = $(L_FLAGS)
+bin_inheritance_SOURCES = c++/inheritance.cpp
+bin_pointer_CFLAGS = $(C_FLAGS)
+bin_pointer_LFLAGS = $(L_FLAGS)
+bin_pointer_LDFLAGS = $(L_FLAGS)
+bin_pointer_SOURCES = c++/pointer.cpp
+bin_pass_CFLAGS = $(C_FLAGS)
+bin_pass_LFLAGS = $(L_FLAGS)
+bin_pass_LDFLAGS = $(L_FLAGS)
+bin_pass_SOURCES = c++/pass.cpp
 bin_helloworld_c_CFLAGS = $(C_FLAGS)
 bin_helloworld_c_LFLAGS = $(L_FLAGS)
 bin_helloworld_c_LDFLAGS = $(L_FLAGS)
@@ -284,6 +357,29 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+c++/$(am__dirstamp):
+	@$(MKDIR_P) c++
+	@: > c++/$(am__dirstamp)
+c++/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) c++/$(DEPDIR)
+	@: > c++/$(DEPDIR)/$(am__dirstamp)
+c++/bitfield.$(OBJEXT): c++/$(am__dirstamp) \
+	c++/$(DEPDIR)/$(am__dirstamp)
+bin/$(am__dirstamp):
+	@$(MKDIR_P) bin
+	@: > bin/$(am__dirstamp)
+bin/bitfield$(EXEEXT): $(bin_bitfield_OBJECTS) $(bin_bitfield_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/bitfield$(EXEEXT)
+	$(bin_bitfield_LINK) $(bin_bitfield_OBJECTS) $(bin_bitfield_LDADD) $(LIBS)
+c++/encapsulation.$(OBJEXT): c++/$(am__dirstamp) \
+	c++/$(DEPDIR)/$(am__dirstamp)
+bin/encapsulation$(EXEEXT): $(bin_encapsulation_OBJECTS) $(bin_encapsulation_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/encapsulation$(EXEEXT)
+	$(bin_encapsulation_LINK) $(bin_encapsulation_OBJECTS) $(bin_encapsulation_LDADD) $(LIBS)
+c++/goto.$(OBJEXT): c++/$(am__dirstamp) c++/$(DEPDIR)/$(am__dirstamp)
+bin/goto$(EXEEXT): $(bin_goto_OBJECTS) $(bin_goto_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/goto$(EXEEXT)
+	$(bin_goto_LINK) $(bin_goto_OBJECTS) $(bin_goto_LDADD) $(LIBS)
 c/$(am__dirstamp):
 	@$(MKDIR_P) c
 	@: > c/$(am__dirstamp)
@@ -292,33 +388,56 @@ c/$(DEPDIR)/$(am__dirstamp):
 	@: > c/$(DEPDIR)/$(am__dirstamp)
 c/bin_helloworld_c-helloworld.$(OBJEXT): c/$(am__dirstamp) \
 	c/$(DEPDIR)/$(am__dirstamp)
-bin/$(am__dirstamp):
-	@$(MKDIR_P) bin
-	@: > bin/$(am__dirstamp)
 bin/helloworld_c$(EXEEXT): $(bin_helloworld_c_OBJECTS) $(bin_helloworld_c_DEPENDENCIES) bin/$(am__dirstamp)
 	@rm -f bin/helloworld_c$(EXEEXT)
 	$(bin_helloworld_c_LINK) $(bin_helloworld_c_OBJECTS) $(bin_helloworld_c_LDADD) $(LIBS)
-c++/$(am__dirstamp):
-	@$(MKDIR_P) c++
-	@: > c++/$(am__dirstamp)
-c++/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) c++/$(DEPDIR)
-	@: > c++/$(DEPDIR)/$(am__dirstamp)
 c++/bin_helloworld_cpp-helloworld.$(OBJEXT): c++/$(am__dirstamp) \
 	c++/$(DEPDIR)/$(am__dirstamp)
 bin/helloworld_cpp$(EXEEXT): $(bin_helloworld_cpp_OBJECTS) $(bin_helloworld_cpp_DEPENDENCIES) bin/$(am__dirstamp)
 	@rm -f bin/helloworld_cpp$(EXEEXT)
 	$(bin_helloworld_cpp_LINK) $(bin_helloworld_cpp_OBJECTS) $(bin_helloworld_cpp_LDADD) $(LIBS)
+c++/inheritance.$(OBJEXT): c++/$(am__dirstamp) \
+	c++/$(DEPDIR)/$(am__dirstamp)
+bin/inheritance$(EXEEXT): $(bin_inheritance_OBJECTS) $(bin_inheritance_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/inheritance$(EXEEXT)
+	$(bin_inheritance_LINK) $(bin_inheritance_OBJECTS) $(bin_inheritance_LDADD) $(LIBS)
+c++/pass.$(OBJEXT): c++/$(am__dirstamp) c++/$(DEPDIR)/$(am__dirstamp)
+bin/pass$(EXEEXT): $(bin_pass_OBJECTS) $(bin_pass_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/pass$(EXEEXT)
+	$(bin_pass_LINK) $(bin_pass_OBJECTS) $(bin_pass_LDADD) $(LIBS)
+c++/pointer.$(OBJEXT): c++/$(am__dirstamp) \
+	c++/$(DEPDIR)/$(am__dirstamp)
+bin/pointer$(EXEEXT): $(bin_pointer_OBJECTS) $(bin_pointer_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/pointer$(EXEEXT)
+	$(bin_pointer_LINK) $(bin_pointer_OBJECTS) $(bin_pointer_LDADD) $(LIBS)
+c++/union.$(OBJEXT): c++/$(am__dirstamp) c++/$(DEPDIR)/$(am__dirstamp)
+bin/union$(EXEEXT): $(bin_union_OBJECTS) $(bin_union_DEPENDENCIES) bin/$(am__dirstamp)
+	@rm -f bin/union$(EXEEXT)
+	$(bin_union_LINK) $(bin_union_OBJECTS) $(bin_union_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f c++/bin_helloworld_cpp-helloworld.$(OBJEXT)
+	-rm -f c++/bitfield.$(OBJEXT)
+	-rm -f c++/encapsulation.$(OBJEXT)
+	-rm -f c++/goto.$(OBJEXT)
+	-rm -f c++/inheritance.$(OBJEXT)
+	-rm -f c++/pass.$(OBJEXT)
+	-rm -f c++/pointer.$(OBJEXT)
+	-rm -f c++/union.$(OBJEXT)
 	-rm -f c/bin_helloworld_c-helloworld.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
 include c++/$(DEPDIR)/bin_helloworld_cpp-helloworld.Po
+include c++/$(DEPDIR)/bitfield.Po
+include c++/$(DEPDIR)/encapsulation.Po
+include c++/$(DEPDIR)/goto.Po
+include c++/$(DEPDIR)/inheritance.Po
+include c++/$(DEPDIR)/pass.Po
+include c++/$(DEPDIR)/pointer.Po
+include c++/$(DEPDIR)/union.Po
 include c/$(DEPDIR)/bin_helloworld_c-helloworld.Po
 
 .c.o:

@@ -1,5 +1,4 @@
-// Example of using Union structure in C++
-// jb@thunkbrightly.com
+// Copyright (C) 2009 jvb4@njit.edu
 #include <iostream>
 #include <cstdlib>
 

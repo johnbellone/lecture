@@ -1,3 +1,4 @@
+// Copyright (C) 2009 jvb4@njit.edu
 #include <iostream>
 
 int

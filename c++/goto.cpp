@@ -1,5 +1,4 @@
-// Example of using Goto and Labels
-// jb@thunkbrightly.com
+// Copyright (C) 2009 jvb4@njit.edu
 #include <iostream>
 #include <string>
 
