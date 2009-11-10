@@ -10,6 +10,11 @@ echo "#!/bin/sh" > autoregen.sh
 echo "./autogen.sh $@ \$@" >> autoregen.sh
 chmod +x autoregen.sh
 
+# because I don't want git complaining about this changing
+if [ ! -f Makefile.in ]; then
+    touch Makefile.in
+fi
+
 if test `uname` = FreeBSD -a -e macros/$package.0.m4 ; then
 	echo
 	echo -n 'FreeBSD patch: removing "macros/$package.0.m4"... '

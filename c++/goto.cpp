@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int
+void
 SomeRandomFunction (int & x) {
 	x = 5;
 	std::cout << x << " ";
@@ -30,10 +30,12 @@ main (int argc, char * arg[]) {
 	goto A;
  C: x = 3;
 	std::cout << x << " ";
- D: x = 4;
+ D: if (x==4) goto E;
+	x = 4;
 	std::cout << x << " ";
+	goto D;
 
-	std::cout << "\n";
+ E: std::cout << "\n";
 
 	// A less horrible use of GOTO.
 	x = 0;

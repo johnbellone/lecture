@@ -8,12 +8,17 @@ C_FLAGS = -I/usr/local/include -I/usr/include -I$(prefix)/include -I./include
 L_FLAGS = -L/usr/local/lib -L/usr/lib -L$(prefix)/lib -L./lib
 
 bin_PROGRAMS = bin/helloworld_cpp bin/helloworld_c bin/encapsulation bin/bitfield \
-bin/goto bin/inheritance bin/pass bin/pointer bin/union
+bin/goto bin/inheritance bin/pass bin/pointer bin/union bin/c99loop
 
 bin_encapsulation_CFLAGS = $(C_FLAGS)
 bin_encapsulation_LFLAGS = $(L_FLAGS)
 bin_encapsulation_LDFLAGS = $(L_FLAGS)
 bin_encapsulation_SOURCES = c++/encapsulation.cpp
+
+bin_c99loop_CFLAGS = -std=c99 $(C_FLAGS)
+bin_c99loop_LFLAGS = $(L_FLAGS)
+bin_c99loop_LDFLAGS = $(L_FLAGS)
+bin_c99loop_SOURCES = c/c99loop.c
 
 bin_bitfield_CFLAGS = $(C_FLAGS)
 bin_bitfield_LFLAGS = $(L_FLAGS)
