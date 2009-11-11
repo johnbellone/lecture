@@ -11,7 +11,8 @@ L_FLAGS = -L/usr/local/lib -L/usr/lib -L$(prefix)/lib -L./lib
 
 bin_PROGRAMS = bin/lecture1/helloworld_cpp bin/lecture1/helloworld_c bin/lecture1/encapsulation \
 bin/lecture1/bitfield bin/lecture1/goto bin/lecture1/inheritance bin/lecture1/pass bin/lecture1/pointer \
-bin/lecture1/union bin/lecture1/c99loop bin/lecture1/operators bin/lecture1/object
+bin/lecture1/union bin/lecture1/c99loop bin/lecture1/operators bin/lecture1/object bin/lecture1/enum_c \
+bin/lecture1/enum_cpp
 
 bin_lecture1_operators_CFLAGS = $(C_FLAGS)
 bin_lecture1_operators_LFLAGS = $(L_FLAGS)
@@ -32,6 +33,16 @@ bin_lecture1_c99loop_CFLAGS = -std=c99 $(C_FLAGS)
 bin_lecture1_c99loop_LFLAGS = $(L_FLAGS)
 bin_lecture1_c99loop_LDFLAGS = $(L_FLAGS)
 bin_lecture1_c99loop_SOURCES = c/lecture1/c99loop.c
+
+bin_lecture1_enum_c_CFLAGS = -std=c99 $(C_FLAGS)
+bin_lecture1_enum_c_LFLAGS = $(L_FLAGS)
+bin_lecture1_enum_c_LDFLAGS = $(L_FLAGS)
+bin_lecture1_enum_c_SOURCES = c/lecture1/enum.c
+
+bin_lecture1_enum_cpp_CFLAGS = $(C_FLAGS)
+bin_lecture1_enum_cpp_LFLAGS = $(L_FLAGS)
+bin_lecture1_enum_cpp_LDFLAGS = $(L_FLAGS)
+bin_lecture1_enum_cpp_SOURCES = c++/lecture1/enum.cpp
 
 bin_lecture1_bitfield_CFLAGS = $(C_FLAGS)
 bin_lecture1_bitfield_LFLAGS = $(L_FLAGS)
