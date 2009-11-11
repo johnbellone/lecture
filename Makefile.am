@@ -12,7 +12,12 @@ L_FLAGS = -L/usr/local/lib -L/usr/lib -L$(prefix)/lib -L./lib
 bin_PROGRAMS = bin/lecture1/helloworld_cpp bin/lecture1/helloworld_c bin/lecture1/encapsulation \
 bin/lecture1/bitfield bin/lecture1/goto bin/lecture1/inheritance bin/lecture1/pass bin/lecture1/pointer \
 bin/lecture1/union bin/lecture1/c99loop bin/lecture1/operators bin/lecture1/object bin/lecture1/enum_c \
-bin/lecture1/enum_cpp
+bin/lecture1/enum_cpp bin/lecture1/factorial
+
+bin_lecture1_factorial_CFLAGS = $(C_FLAGS)
+bin_lecture1_factorial_LFLAGS = $(L_FLAGS)
+bin_lecture1_factorial_LDFLAGS = $(L_FLAGS)
+bin_lecture1_factorial_SOURCES = c++/lecture1/factorial.cpp
 
 bin_lecture1_operators_CFLAGS = $(C_FLAGS)
 bin_lecture1_operators_LFLAGS = $(L_FLAGS)
