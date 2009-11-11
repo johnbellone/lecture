@@ -10,7 +10,18 @@ C_FLAGS = -I/usr/local/include -I/usr/include -I$(prefix)/include -I./include
 L_FLAGS = -L/usr/local/lib -L/usr/lib -L$(prefix)/lib -L./lib
 
 bin_PROGRAMS = bin/helloworld_cpp bin/helloworld_c bin/encapsulation bin/bitfield \
-bin/goto bin/inheritance bin/pass bin/pointer bin/union bin/c99loop
+bin/goto bin/inheritance bin/pass bin/pointer bin/union bin/c99loop bin/operators \
+bin/object
+
+bin_operators_CFLAGS = $(C_FLAGS)
+bin_operators_LFLAGS = $(L_FLAGS)
+bin_operators_LDFLAGS = $(L_FLAGS)
+bin_operators_SOURCES = c++/operators.cpp
+
+bin_object_CFLAGS = $(C_FLAGS)
+bin_object_LFLAGS = $(L_FLAGS)
+bin_object_LDFLAGS = $(L_FLAGS)
+bin_object_SOURCES = c++/object.cpp
 
 bin_encapsulation_CFLAGS = $(C_FLAGS)
 bin_encapsulation_LFLAGS = $(L_FLAGS)
