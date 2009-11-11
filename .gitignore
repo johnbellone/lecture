@@ -1,3 +1,7 @@
+build-aux/ltmain.sh
+build-aux/config.guess
+build-aux/config.sub
+configure
 Makefile.in
 Makefile
 CHANGES
