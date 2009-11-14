@@ -1,5 +1,6 @@
 #include <iostream>
-#include <tr1/memory>
+//#include <tr1/memory>
+#include <boost/shared_ptr.hpp>
 
 class Unique {
 	static unsigned int object_guid_top;
@@ -18,10 +19,10 @@ unsigned int Unique::object_guid_top = 0;
 int
 main (int argc, char * argv[]) {
 	Unique * q = new Unique;
-	std::tr1::shared_ptr <Unique> x (new Unique);
-	std::tr1::shared_ptr <Unique> y (new Unique);
-	std::tr1::shared_ptr <Unique> z (x);
-	std::tr1::shared_ptr <Unique> w (q);
+	boost::shared_ptr <Unique> x (new Unique);
+	boost::shared_ptr <Unique> y (new Unique);
+	boost::shared_ptr <Unique> z (x);
+	boost::shared_ptr <Unique> w (q);
 	
 	if (x->GetId() == z->GetId()) {
 		std::cout << "x == z\n";

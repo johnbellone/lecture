@@ -23,9 +23,9 @@ int
 main (int argc, char * argv[]) {
 	Node ** array = new Node* [11]; array[10] = NULL;
 	
-	for (int ii = 0; ii < 10; ii++)
-		array[ii] = new Node ( ii );
-	
+	for (int ii = 0; ii < 10; ii++) {
+			array[ii] = new Node ( ii );
+	}
 	// base[ii]
 	for (int ii = 0; ii < 10; ii++)
 		std::cout << array[ii];
